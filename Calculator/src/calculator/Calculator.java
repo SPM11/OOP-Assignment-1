@@ -8,11 +8,7 @@ public class Calculator extends JFrame implements ActionListener
     
     JPanel[] row = new JPanel[5];
     JButton[] button = new JButton[19];
-    String[] buttonString = {"Reset", "On/Off",
-                             "7", "8", "9", "+", "-",
-                             "4", "5", "6", "x", "/",
-                             "1", "2", "3",
-                             "0", ".", "Del", "="};
+    String[] buttonString = {"Reset", "On/Off","7", "8", "9", "+", "-","4", "5", "6", "x", "/","1", "2", "3","0", ".", "Del", "="};
     int[] dimW = {300,45,100};
     int[] dimH = {35, 40};
     Dimension displayDimension = new Dimension(dimW[0], dimH[0]);
@@ -24,7 +20,25 @@ public class Calculator extends JFrame implements ActionListener
     Font font = new Font("Tahoma", Font.PLAIN, 12);
     JLabel label = new JLabel("Made by Sanzu Padula");
     Font fontl = new Font("Lucida Handwriting", Font.PLAIN, 12);
-    
+
+    public static void main(String[] args)
+    {
+        JPanel[] row = new JPanel[5];
+    JButton[] button = new JButton[19];
+    String[] buttonString = {"Reset", "On/Off","7", "8", "9", "+", "-","4", "5", "6", "x", "/","1", "2", "3","0", ".", "Del", "="};
+    int[] dimW = {300,45,100};
+    int[] dimH = {35, 40};
+    Dimension displayDimension = new Dimension(dimW[0], dimH[0]);
+    Dimension regularDimension = new Dimension(dimW[1], dimH[1]);
+    Dimension otherButtDimension = new Dimension(dimW[2], dimH[1]);
+    boolean[] function = new boolean[4];
+    double[] temporary = {0, 0};
+    JTextArea display = new JTextArea(1,20);
+    Font font = new Font("Tahoma", Font.PLAIN, 12);
+    JLabel label = new JLabel("Made by Sanzu Padula");
+    Font fontl = new Font("Lucida Handwriting", Font.PLAIN, 12);
+        Calculator c = new Calculator();
+    }
     Calculator()
     {
         super("MyCalculator");
@@ -147,68 +161,64 @@ public class Calculator extends JFrame implements ActionListener
     }
     
     @Override
-    public void actionPerformed(ActionEvent ae)
+    public void actionPerformed(ActionEvent a)
     {
-        if(ae.getSource() == button[2])
+        if(a.getSource() == button[2])
             display.append("7");
-        if(ae.getSource() == button[3])
+        if(a.getSource() == button[3])
             display.append("8");
-        if(ae.getSource() == button[4])
+        if(a.getSource() == button[4])
             display.append("9");
-        if(ae.getSource() == button[5])
+        if(a.getSource() == button[5])
         {
             //add
             temporary[0] = Double.parseDouble(display.getText());
             function[0] = true;
             display.setText("");
         }
-        if(ae.getSource() == button[7])
+        if(a.getSource() == button[7])
             display.append("4");
-        if(ae.getSource() == button[8])
+        if(a.getSource() == button[8])
             display.append("5");
-        if(ae.getSource() == button[9])
+        if(a.getSource() == button[9])
             display.append("6");
-        if(ae.getSource() == button[6])
+        if(a.getSource() == button[6])
         {
             //subtract
             temporary[0] = Double.parseDouble(display.getText());
             function[1] = true;
             display.setText("");
         }
-        if(ae.getSource() == button[12])
+        if(a.getSource() == button[12])
             display.append("1");
-        if(ae.getSource() == button[13])
+        if(a.getSource() == button[13])
             display.append("2");
-        if(ae.getSource() == button[14])
+        if(a.getSource() == button[14])
             display.append("3");
-        if(ae.getSource() == button[10])
+        if(a.getSource() == button[10])
         {
             //multiply
             temporary[0] = Double.parseDouble(display.getText());
             function[2] = true;
             display.setText("");
         }
-        if(ae.getSource() == button[16])
+        if(a.getSource() == button[16])
             display.append(".");
-        if(ae.getSource() == button[11])
+        if(a.getSource() == button[11])
         {
             //divide
             temporary[0] = Double.parseDouble(display.getText());
             function[3] = true;
             display.setText("");
         }
-        if(ae.getSource() == button[0])
+        if(a.getSource() == button[0])
             reset();
-        if(ae.getSource() == button[1])
+        if(a.getSource() == button[1])
             powerOp();
-        if(ae.getSource() == button[18])
+        if(a.getSource() == button[18])
             result();
-        if(ae.getSource() == button[15])
+        if(a.getSource() == button[15])
             display.append("0");
     }
-    
-    public static void main(String[] args)
-    {
-        Calculator c = new Calculator();
-    }
+
 }
